@@ -1,0 +1,56 @@
+<ng-template appPlaceholder></ng-template>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <form (ngSubmit)="submitForm()" class="text-left" [formGroup]="authForm" *ngIf="!isLoading; else loading">
+        <fieldset class="form-group" *ngFor="let field of fields; let i = index">
+          <label class="text-capitalize" [for]="field.name">{{field.name}}</label>
+          <input 
+          class="form-control"
+          [ngClass]="{'invalid-input': (authForm.invalid && submitted),
+          'valid-input': authForm.get(field.name).valid }"
+          [type]="field.type" 
+          [name]="field.name" 
+          [id]="field.name"
+          [formControlName]="field.name">
+
+          <div class="d-block" 
+          [ngClass]="
+          (authForm.get(field.name).invalid && submitted) ?
+          'invalid-feedback' : 
+          authForm.get(field.name).valid ? 
+          'valid-feedback' : ' '
+          " 
+          *ngIf="submitted">
+            {{authForm.get(field.name).invalid ? 'please check ' + field.name : 'Looks Good'}}
+          </div>
+        </fieldset>
+
+        <div class="row col-12">
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+
+          <div class="ml-3">
+            Already Registered? <a [routerLink]="['login']">Sign In</a>
+          </div>
+        </div>
+      </form>
+
+      <ng-template #loading>
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      </ng-template>
+      
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5" *ngIf="responseMessage">
+  <div class="row">
+    <div class="col-12">
+      <!-- <div class="alert" [ngClass]="hasErrors? 'alert-danger': 'alert-success'">
+        {{responseMessage}}
+      </div> -->
+      <!-- <app-alert [message]="responseMessage" *ngIf="responseMessage" (close)="onHandleError()"></app-alert> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<a [routerLink]="['/recipes', index+1]" routerLinkActive="active"
+class="list-group-item border-primary clearfix">
+  <div class="float-sm-left">
+    <h4>{{ recipeItem.name }}</h4>
+    <p>{{ recipeItem.description }}</p>
+  </div>
+  <div class="float-sm-right">
+    <img
+    class="img-responsive"
+    [src]="recipeItem.imagePath"
+    [alt]="recipeItem.name"
+    [title]="recipeItem.name">
+  </div>
+</a>

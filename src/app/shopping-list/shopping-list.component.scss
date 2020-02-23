@@ -1,0 +1,8 @@
+.shopping:hover .btn{
+  display: block !important;
+}
+app-shopping-list-edit::ng-deep {
+  .form-group {
+    opacity: 0;
+  }
+}

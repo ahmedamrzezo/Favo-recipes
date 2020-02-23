@@ -1,0 +1,16 @@
+button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+input {
+  margin-top: 20px;
+}
+
+.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.ng-valid.ng-touched {
+  border-color: green;
+}

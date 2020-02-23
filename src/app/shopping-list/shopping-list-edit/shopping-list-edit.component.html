@@ -1,0 +1,39 @@
+<form class="form-group" (ngSubmit)="onEditing()" #editForm="ngForm">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <input
+      type="text"
+      name="name"
+      placeholder="Enter name"
+      id="name"
+      class="form-control form-control-sm"
+      [(ngModel)]="name"
+      required
+      >
+    </div>
+
+    <div class="col-sm-4">
+      <input
+      type="number"
+      name="weight"
+      placeholder="Enter weight"
+      id="weight"
+      class="form-control form-control-sm"
+      min=""
+      [(ngModel)]="weight"
+      required
+      >
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-sm-12 btn-group-sm">
+      <button class="btn btn-success" type="submit">Save</button>
+      <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
+      <a  class="btn btn-default" routerLink="/shopping">Cancel</a>
+    </div>
+
+  </div>
+</form>

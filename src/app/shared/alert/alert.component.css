@@ -1,0 +1,21 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 555;
+}
+
+.alert-pop {
+  position: fixed;
+  top: 20vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 5555;
+  background-color: #fff;
+  width: 30vw;
+  padding: 20px;
+}

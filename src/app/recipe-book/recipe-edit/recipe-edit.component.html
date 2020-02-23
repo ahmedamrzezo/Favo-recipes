@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h5>Complete fields below to modify recipe</h5>
+    <form [formGroup]="recipeForm" (ngSubmit)="saveForm()">
+      <fieldset class="form-group" *ngFor="let field of formFields">
+        <label [for]="field.name">{{field.title}}</label>
+        <input 
+          [id]="field.name" 
+          [type]="field.type" 
+          [formControlName]="field.name"
+          class="form-control">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="description">Add recipe description</label>
+        <textarea 
+          id="description" 
+          type="description" 
+          formControlName="description"
+          class="form-control"></textarea>
+      </fieldset>
+      <fieldset class="form-group" formArrayName="ingredients">
+        <div class="row mb-2" *ngFor="let ingredientControl of getControls(); let i = index" [formGroupName]="i">
+          <div class="col-md-8">
+            <fieldset class="form-group">
+              <input type="text" class="form-control" formControlName="name">
+            </fieldset>
+          </div>
+          <div class="col-md-2">
+            <fieldset class="form-group">
+              <input type="number" class="form-control" formControlName="amount">
+            </fieldset>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-danger" type="button" (click)="deleteIng(i)">x</button>
+          </div>
+        </div>
+      </fieldset>
+      <div class="col-md-12">
+        <button class="btn btn-success" type="button" (click)="addIngredient()">Add ingredient</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <img src="" class="img-fluid">
+        </div>
+      </div>
+      <button class="btn btn-success mr-3" type="submit">Save</button>
+      <button class="btn btn-secondary" type="button" (click)="cancelForm()">Cancel</button>
+    </form>
+  </div>
+</div>

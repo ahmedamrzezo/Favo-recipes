@@ -1,0 +1,14 @@
+<ul class="list-group">
+  <li class="list-group-item active">Your Shopping List</li>
+  <li
+  class="shopping list-group-item text-dark"
+  *ngFor="let product of shoppings; let id = index">
+    {{ product.name }} -
+    {{ product.weight }} grams
+    <a class="btn btn-sm btn-outline-primary float-right d-none" routerLink="{{id + 1}}/edit" (click)="wantEdit(id)">Edit</a>
+  </li>
+</ul>
+<a class="btn mt-3 btn-primary" routerLink="new" (click)="formIsShown = true">Add new</a>
+
+<router-outlet *ngIf="formIsShown"></router-outlet>
+
